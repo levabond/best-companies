@@ -9,32 +9,51 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+  let companiesTableView = CompaniesTableView(frame: UIScreen.main.bounds)
+  
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    super.init(nibName: nil, bundle: nil)
+    
+    setupView()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     view.backgroundColor = .white
-    guard let url = URL(string: "http://megakohz.bget.ru/test.php") else { return }
     
+    getCompanies()
+  }
+  
+  // MARK: Setup UI
+  
+  func setupView() {
+    view.addSubview(companiesTableView)
+  }
+  
+  private func getCompanies() {
+    guard let url = URL(string: "http://megakohz.bget.ru/test.php") else { return }
     let apiClient = APIClient()
     
-    print("test")
     apiClient.get(path: url) { result in
-      print("test")
       switch result {
       case .success(let data):
         do {
-          let response = try JSONDecoder().decode(SingleResponse<Company>.self, from: data)
+          let companies: [Company] = try JSONDecoder().decode([Company].self, from: data)
           
-          print(response)
+          DispatchQueue.main.async {
+            self.companiesTableView.companies = companies
+            self.companiesTableView.reloadData()
+          }
         } catch {
           print(error)
         }
       case .failure(let error):
         print("error", error)
       }
-      
     }
-    
-    print(apiClient)
   }
 }

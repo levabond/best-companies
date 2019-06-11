@@ -20,16 +20,21 @@ public final class APIClient {
   init() {}
   
   func get(path: URL, result: @escaping ((Result<Data>) -> Void)) {
-    URLSession.shared.dataTask(with: path) { (data, response, error) in
-      guard let `data` = data else {
-        result(.failure(APIClientError.noData))
-        return
-      }
-      if let `error` = error {
-        result(.failure(error))
-        return
-      }
-      result(.success(data))
-    }
+    var request = URLRequest(url: path)
+    
+    request.httpMethod = "GET"
+    
+    URLSession.shared
+      .dataTask(with: path) { (data, response, error) in
+        guard let `data` = data else {
+          result(.failure(APIClientError.noData))
+          return
+        }
+        if let `error` = error {
+          result(.failure(error))
+          return
+        }
+        result(.success(data))
+      }.resume()
   }
 }

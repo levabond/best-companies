@@ -19,6 +19,14 @@ public struct Response<T: Codable> {
   }
 }
 
+extension Response: Codable {
+  enum ResponseKeys: String, CodingKey {
+    case status
+    case success
+    case data
+  }
+}
+
 public struct SingleResponse<T: Codable> {
   public let status: Int
   public let success: Bool

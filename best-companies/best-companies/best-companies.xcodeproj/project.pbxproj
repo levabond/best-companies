@@ -13,6 +13,7 @@
 		2577CFDC22AECC1B00ABEA69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFDB22AECC1B00ABEA69 /* ViewController.swift */; };
 		2577CFDF22AECC5B00ABEA69 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFDE22AECC5B00ABEA69 /* Company.swift */; };
 		2577CFE122AECC7300ABEA69 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFE022AECC7300ABEA69 /* Response.swift */; };
+		257ED6FB22AFA5900006ED3E /* CompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257ED6FA22AFA5900006ED3E /* CompaniesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2577CFDB22AECC1B00ABEA69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2577CFDE22AECC5B00ABEA69 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		2577CFE022AECC7300ABEA69 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		257ED6FA22AFA5900006ED3E /* CompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,7 @@
 		2577CFC422AECB3500ABEA69 /* best-companies */ = {
 			isa = PBXGroup;
 			children = (
-				2577CFDD22AECC4D00ABEA69 /* Domains */,
+				2577CFDD22AECC4D00ABEA69 /* Models */,
 				2577CFDA22AECC0E00ABEA69 /* App */,
 				2577CFD722AECBDB00ABEA69 /* Network */,
 				2577CFCC22AECB3500ABEA69 /* Assets.xcassets */,
@@ -76,19 +78,28 @@
 		2577CFDA22AECC0E00ABEA69 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				257ED6F922AFA5590006ED3E /* Companies */,
 				2577CFDB22AECC1B00ABEA69 /* ViewController.swift */,
 				2577CFC522AECB3500ABEA69 /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		2577CFDD22AECC4D00ABEA69 /* Domains */ = {
+		2577CFDD22AECC4D00ABEA69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				2577CFDE22AECC5B00ABEA69 /* Company.swift */,
 				2577CFE022AECC7300ABEA69 /* Response.swift */,
 			);
-			path = Domains;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		257ED6F922AFA5590006ED3E /* Companies */ = {
+			isa = PBXGroup;
+			children = (
+				257ED6FA22AFA5900006ED3E /* CompaniesViewController.swift */,
+			);
+			path = Companies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				257ED6FB22AFA5900006ED3E /* CompaniesViewController.swift in Sources */,
 				2577CFDC22AECC1B00ABEA69 /* ViewController.swift in Sources */,
 				2577CFD922AECBE800ABEA69 /* Network.swift in Sources */,
 				2577CFC622AECB3500ABEA69 /* AppDelegate.swift in Sources */,
