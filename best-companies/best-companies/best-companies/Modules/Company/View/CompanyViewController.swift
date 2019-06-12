@@ -6,6 +6,8 @@
 //  Copyright © 2019 best-companies. All rights reserved.
 //
 
+import SnapKit
+
 protocol CompanyViewInput: class {
   func dispay(company: Company, error: Error?)
 }
@@ -19,9 +21,24 @@ import UIKit
 class CompanyViewController: UIViewController, CompanyViewInput {
   var companyID: String = "0"
   
+  lazy var scrollView: UIScrollView = {
+    var scrollView = UIScrollView(frame: .zero)
+    scrollView.isScrollEnabled = true
+    scrollView.isUserInteractionEnabled = true
+    scrollView.translatesAutoresizingMaskIntoConstraints = false
+    scrollView.bounces = false
+    scrollView.backgroundColor = .white
+    scrollView.addSubview(stackView)
+    
+    return scrollView
+  }()
+  
   lazy var stackView: UIStackView = {
     let stack = UIStackView(arrangedSubviews: [self.nameLabel, self.descriptionLabel])
     stack.axis = .vertical
+    stack.distribution = .equalSpacing
+    stack.spacing = 16.0
+    stack.layoutMargins = UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0)
     
     return stack
   }()
@@ -29,7 +46,7 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   lazy var nameLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
-    label.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
+    label.font = UIFont(name: "HelveticaNeue-Bold", size: 22)
     label.textColor = .black
     
     return label
@@ -37,7 +54,7 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   
   lazy var descriptionLabel: UILabel = {
     let label = UILabel()
-    label.font = UIFont(name: "HelveticaNeue-Regular", size: 16)
+    label.font = UIFont(name: "HelveticaNeue-Light", size: 16)
     label.textColor = .black
     label.numberOfLines = 0
     
@@ -49,15 +66,12 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(companyID)
-    
   }
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     output.fetchCompany(id: companyID)
     setupConstraints()
-    print(companyID)
   }
 
   init() {
@@ -79,10 +93,30 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   }
   
   func setupViews() {
-    view.addSubview(stackView)
+    view.addSubview(scrollView)
   }
   
   func setupConstraints() {
+    scrollView.snp.makeConstraints { make in
+      make.top.left.right.bottom.equalToSuperview()
+      make.width.height.equalToSuperview()
+    }
+    
+    stackView.snp.makeConstraints { make in
+      make.top.left.right.width.equalTo(scrollView)
+      make.bottom.equalTo(scrollView).offset(-76.0)
+    }
+
+    nameLabel.snp.makeConstraints { make in
+      make.left.equalTo(stackView).offset(16.0)
+      make.right.equalToSuperview().offset(-16.0)
+      make.height.equalTo(50.0)
+    }
+    
+    descriptionLabel.snp.makeConstraints { make in
+      make.left.equalTo(stackView).offset(16.0)
+      make.right.equalToSuperview().offset(-16.0)
+    }
   }
   
   func dispay(company: Company, error: Error?) {

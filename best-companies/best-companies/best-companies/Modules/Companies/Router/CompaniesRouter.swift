@@ -16,7 +16,6 @@ class CompaniesRouter: CompaniesRouterInput {
   func routeToCompany(id: String) {
     let destionationScene = CompanyViewController()
     
-    print("id", id)
     destionationScene.companyID = id
     viewController.show(destionationScene, sender: nil)
   }

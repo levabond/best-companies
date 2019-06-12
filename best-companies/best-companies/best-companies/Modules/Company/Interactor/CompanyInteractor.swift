@@ -22,7 +22,7 @@ class CompanyInteractor: CompanyInteractorInput {
 
   func getCompany(id: String, company: @escaping (((company: Company, error: Error?)) -> Void)) {
     guard let url = URL(string: "http://megakohz.bget.ru/test.php?id=\(id)") else { return }
-    print(url)
+
     apiClient.get(path: url) { result in
       switch result {
       case .success(let data):
