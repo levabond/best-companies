@@ -87,7 +87,6 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   
   func dispay(company: Company, error: Error?) {
     if let `error` = error {
-      print("error", error.localizedDescription)
       nameLabel.text = error.localizedDescription
     } else {
       nameLabel.text = company.name
