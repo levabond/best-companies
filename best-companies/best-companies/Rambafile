@@ -1,0 +1,22 @@
+### Headers settings
+company: best-companies
+
+### Xcode project settings
+project_name: best-companies
+xcodeproj_path: best-companies.xcodeproj
+
+### Code generation settings section
+# The main project target name
+project_target: best-companies
+
+# The file path for new modules
+project_file_path: best-companies/Modules
+
+# The Xcode group path to new modules
+project_group_path: best-companies/Modules
+
+### Templates
+templates:
+- {name: rviper_controller}
+- {name: mvvm_controller}
+- {name: swifty_viper}
