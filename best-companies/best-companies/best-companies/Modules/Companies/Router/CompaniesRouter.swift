@@ -7,16 +7,17 @@
 //
 
 protocol CompaniesRouterInput {
-  func routeToCompany(name: String)
+  func routeToCompany(id: String)
 }
 
 class CompaniesRouter: CompaniesRouterInput {
   weak var viewController: CompaniesViewController!
   
-  func routeToCompany(name: String) {
+  func routeToCompany(id: String) {
     let destionationScene = CompanyViewController()
     
-    destionationScene.label.text = name
+    print("id", id)
+    destionationScene.companyID = id
     viewController.show(destionationScene, sender: nil)
   }
 }

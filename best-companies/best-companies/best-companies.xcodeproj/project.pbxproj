@@ -13,9 +13,10 @@
 		2577CFC622AECB3500ABEA69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFC522AECB3500ABEA69 /* AppDelegate.swift */; };
 		2577CFCD22AECB3500ABEA69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2577CFCC22AECB3500ABEA69 /* Assets.xcassets */; };
 		2577CFD922AECBE800ABEA69 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFD822AECBE800ABEA69 /* Network.swift */; };
-		2577CFDF22AECC5B00ABEA69 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFDE22AECC5B00ABEA69 /* Company.swift */; };
+		2577CFDF22AECC5B00ABEA69 /* Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFDE22AECC5B00ABEA69 /* Companies.swift */; };
 		2577CFE122AECC7300ABEA69 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2577CFE022AECC7300ABEA69 /* Response.swift */; };
 		2599404F22AFF6D3002969B3 /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2599404E22AFF6D3002969B3 /* Launchscreen.storyboard */; };
+		2599405622B15D8B002969B3 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599405522B15D8B002969B3 /* Company.swift */; };
 		50A9E7E357E4FA83A8A0F60C /* CompanyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DCC09C85F1018F4AEEBB4B /* CompanyInteractor.swift */; };
 		5475242F7329A1DDBA805599 /* CompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C6F03584CBF3D1EFE75C01 /* CompanyViewController.swift */; };
 		56BD6AB56185F43F740EF3D8 /* CompaniesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C9D9377BD4E69033A7FDF4 /* CompaniesPresenter.swift */; };
@@ -31,9 +32,10 @@
 		2577CFCC22AECB3500ABEA69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2577CFD122AECB3500ABEA69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2577CFD822AECBE800ABEA69 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		2577CFDE22AECC5B00ABEA69 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		2577CFDE22AECC5B00ABEA69 /* Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Companies.swift; sourceTree = "<group>"; };
 		2577CFE022AECC7300ABEA69 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		2599404E22AFF6D3002969B3 /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
+		2599405522B15D8B002969B3 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		29DCC09C85F1018F4AEEBB4B /* CompanyInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompanyInteractor.swift; sourceTree = "<group>"; };
 		57DE47ACA9126E9AA03B11BA /* CompaniesRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompaniesRouter.swift; sourceTree = "<group>"; };
 		59C9D9377BD4E69033A7FDF4 /* CompaniesPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompaniesPresenter.swift; sourceTree = "<group>"; };
@@ -121,8 +123,9 @@
 		2577CFDD22AECC4D00ABEA69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2577CFDE22AECC5B00ABEA69 /* Company.swift */,
+				2577CFDE22AECC5B00ABEA69 /* Companies.swift */,
 				2577CFE022AECC7300ABEA69 /* Response.swift */,
+				2599405522B15D8B002969B3 /* Company.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,12 +308,13 @@
 			files = (
 				2577CFD922AECBE800ABEA69 /* Network.swift in Sources */,
 				2577CFC622AECB3500ABEA69 /* AppDelegate.swift in Sources */,
-				2577CFDF22AECC5B00ABEA69 /* Company.swift in Sources */,
+				2577CFDF22AECC5B00ABEA69 /* Companies.swift in Sources */,
 				2577CFE122AECC7300ABEA69 /* Response.swift in Sources */,
 				B079A9709F87F662F53A9F3E /* CompaniesViewController.swift in Sources */,
 				56BD6AB56185F43F740EF3D8 /* CompaniesPresenter.swift in Sources */,
 				C289CEAB35C5AB9EDAD5FB4A /* CompaniesInteractor.swift in Sources */,
 				118FFCF64DAB161A7AD13132 /* CompaniesRouter.swift in Sources */,
+				2599405622B15D8B002969B3 /* Company.swift in Sources */,
 				BE10E5033940389651BAC84A /* CompaniesConfigurator.swift in Sources */,
 				5475242F7329A1DDBA805599 /* CompanyViewController.swift in Sources */,
 				03EEBD4E1667E3E702C6490D /* CompanyPresenter.swift in Sources */,

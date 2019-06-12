@@ -11,10 +11,9 @@ import UIKit
 class CompanyModuleConfigurator {
 
     func configureModuleForViewInput<UIViewController>(viewInput: UIViewController) {
-
-        if let viewController = viewInput as? CompanyViewController {
-            configure(viewController: viewController)
-        }
+      if let viewController = viewInput as? CompanyViewController {
+          configure(viewController: viewController)
+      }
     }
 
     private func configure(viewController: CompanyViewController) {

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CompaniesViewInput: class {
-  func dispayCompanies(companies: [Company])
+  func dispayCompanies(companies: [Companies])
 }
 
 protocol CompaniesViewOutput {
@@ -18,7 +18,7 @@ protocol CompaniesViewOutput {
 
 class CompaniesViewController: UITableViewController, CompaniesViewInput {
   let cellID = "ID"
-  var companies: [Company] = []
+  var companies: [Companies] = []
   var output: CompaniesViewOutput!
   var router: CompaniesRouterInput!
   
@@ -44,7 +44,7 @@ class CompaniesViewController: UITableViewController, CompaniesViewInput {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func dispayCompanies(companies: [Company]) {
+  func dispayCompanies(companies: [Companies]) {
     self.companies = companies
     tableView.reloadData()
   }
@@ -54,7 +54,7 @@ extension CompaniesViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let item = companies[indexPath.item]
 
-    router.routeToCompany(name: item.name)
+    router.routeToCompany(id: item.id)
   }
 }
 

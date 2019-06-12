@@ -6,17 +6,22 @@
 //  Copyright © 2019 best-companies. All rights reserved.
 //
 
+import Foundation
+
 protocol CompanyModuleInput: class {
 
 }
 
 class CompanyPresenter: CompanyModuleInput, CompanyViewOutput, CompanyInteractorOutput {
 
-    weak var view: CompanyViewInput!
-    var interactor: CompanyInteractorInput!
-    var router: CompanyRouterInput!
+  weak var view: CompanyViewInput!
+  var interactor: CompanyInteractorInput!
+  var router: CompanyRouterInput!
 
-    func viewIsReady() {
-
+  func fetchCompany(id: String) {
+    interactor.getCompany(id: id) { [weak self] (company, error) in
+      DispatchQueue.main.async {
+        self?.view.dispay(company: company, error: error)
+      }
     }
-}
+  }}

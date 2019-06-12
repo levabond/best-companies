@@ -7,9 +7,7 @@
 //
 
 protocol CompanyRouterInput {
-
 }
 
 class CompanyRouter: CompanyRouterInput {
-  
 }

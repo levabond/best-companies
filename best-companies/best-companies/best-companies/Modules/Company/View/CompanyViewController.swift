@@ -7,20 +7,39 @@
 //
 
 protocol CompanyViewInput: class {
+  func dispay(company: Company, error: Error?)
 }
 
 protocol CompanyViewOutput {
+  func fetchCompany(id: String)
 }
 
 import UIKit
 
 class CompanyViewController: UIViewController, CompanyViewInput {
-  lazy var label: UILabel = {
-    let label = UILabel(frame: CGRect(x: 0, y: 100, width: UIScreen.main.bounds.width, height: 100))
-    label.text = "test"
-    label.textAlignment = .center
-    label.font = UIFont(name: "HelveticaNeue-UltraLight", size: 30)
+  var companyID: String = "0"
+  
+  lazy var stackView: UIStackView = {
+    let stack = UIStackView(arrangedSubviews: [self.nameLabel, self.descriptionLabel])
+    stack.axis = .vertical
+    
+    return stack
+  }()
+  
+  lazy var nameLabel: UILabel = {
+    let label = UILabel()
+    label.numberOfLines = 0
+    label.font = UIFont(name: "HelveticaNeue-Bold", size: 30)
     label.textColor = .black
+    
+    return label
+  }()
+  
+  lazy var descriptionLabel: UILabel = {
+    let label = UILabel()
+    label.font = UIFont(name: "HelveticaNeue-Regular", size: 16)
+    label.textColor = .black
+    label.numberOfLines = 0
     
     return label
   }()
@@ -30,19 +49,28 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    print(companyID)
+    
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    output.fetchCompany(id: companyID)
+    setupConstraints()
+    print(companyID)
   }
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+  init() {
   	super.init(nibName: nil, bundle: nil)
     view.backgroundColor = .white
-    navigationItem?.title = "Компания"
+    navigationItem.title = "Компания"
     
     configure()
     setupViews()
   }
   
   func configure() {
-    let configurator = CompaniesModuleConfigurator()
+    let configurator = CompanyModuleConfigurator()
     configurator.configureModuleForViewInput(viewInput: self)
   }
   
@@ -51,6 +79,19 @@ class CompanyViewController: UIViewController, CompanyViewInput {
   }
   
   func setupViews() {
-    view.addSubview(label)
+    view.addSubview(stackView)
+  }
+  
+  func setupConstraints() {
+  }
+  
+  func dispay(company: Company, error: Error?) {
+    if let `error` = error {
+      print("error", error.localizedDescription)
+      nameLabel.text = error.localizedDescription
+    } else {
+      nameLabel.text = company.name
+      descriptionLabel.text = company.description
+    }
   }
 }

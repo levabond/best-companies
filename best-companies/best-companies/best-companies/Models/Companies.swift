@@ -2,28 +2,24 @@
 //  Company.swift
 //  best-companies
 //
-//  Created by Лев Бондаренко on 12/06/2019.
+//  Created by Лев Бондаренко on 10/06/2019.
 //  Copyright © 2019 Лев Бондаренко. All rights reserved.
 //
 
-struct Company {
+struct Companies {
   let id: String
   let name: String
-  let description: String
   
   init(id: String,
-       name: String,
-       description: String) {
+       name: String) {
     self.id = id
     self.name = name
-    self.description = description
   }
 }
 
-extension Company: Codable {
+extension Companies: Codable {
   enum ResponseKeys: String, CodingKey {
     case id
     case name
-    case description
   }
 }
