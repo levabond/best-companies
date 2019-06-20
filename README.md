@@ -2,6 +2,10 @@
 
 Очень простое приложение на простых технологиях со списком компаний
 
+Для работы потребуется генератор:
+gem install generamba
+- https://github.com/strongself/Generamba
+
 **Реализация:**
 - Архитектура VIPER
 - Верстка SnapKit
